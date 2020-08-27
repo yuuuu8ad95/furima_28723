@@ -64,8 +64,6 @@ Things you may want to cover:
 
 
 
-
-
 ##purchaseテーブル
 
 | Column  | Type      | Options                       |
@@ -74,7 +72,10 @@ Things you may want to cover:
 | item_id | reference | null: false foreign_key: true |
 
 ###Association
-- belongs_to :users
+- has_one :destination
+- belongs_to :user
+- belongs_to :items
+
 
 
 
