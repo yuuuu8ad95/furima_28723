@@ -83,16 +83,18 @@ Things you may want to cover:
 
 ##itemsテーブル
 
-| Column  | Type      | Options                 |
-| --------| --------  | ------------------------|
-| name    | string    | null: false             |
-| image   | string    | null: false             |
-| explain | string    | null: false             |
-| status  | string    | null: false             |
-| price   | string    | null: false             |
-| cost    | string    | null: false             |
-| days    | string    | null: false             |
-| user_id | reference | null: false foreign_key |
+| Column   | Type      | Options                 |
+| ---------| --------  | ------------------------|
+| image    | string    | null: false             |
+| name     | string    | null: false             |
+| category | string    | null: false             |
+| explain  | string    | null: false             |
+| status   | string    | null: false             |
+| cost     | string    | null: false             |
+| from     | string    | null: false             |
+| days     | string    | null: false             |
+| price    | string    | null: false             |
+| user_id  | reference | null: false foreign_key |
 
 ###Association
 - belongs_to :users
