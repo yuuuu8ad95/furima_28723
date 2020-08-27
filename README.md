@@ -50,16 +50,30 @@ Things you may want to cover:
 
 
 ##destinationテーブル
+ 
+| Column              | Type      | Options                       |
+| ------------------- | --------- | ----------------------------- |
+| postal_code         | string    | null: false                   |
+| prefecture          | data      | null: false                   |
+| city                | string    | null: false                   |
+| address             | string    | null: false                   |
+| building_name       | string    |                               |
+| phone_name          | string    | null: false                   |
+| user_id             | reference | null: false foreign_key: true |
 
-| Column              | Type      | Options                 |
-| ------------------- | --------- | ----------------------- |
-| postal_code         | string    | null: false             |
-| prefecture          | data      | null: false             |
-| city                | string    | null: false             |
-| address             | string    | null: false             |
-| building_name       | string    |                         |
-| phone_name          | string    | null: false             |
-| user_id             | reference | null: false foreign_key |
+###Association
+- belongs_to :users
+
+
+
+
+
+##purchaseテーブル
+
+| Column  | Type      | Options                       |
+| --------| --------  | ------------------------------|
+| user_id | reference | null: false foreign_key: true |
+| item_id | reference | null: false foreign_key: true |
 
 ###Association
 - belongs_to :users
