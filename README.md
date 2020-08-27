@@ -48,15 +48,15 @@ Things you may want to cover:
 
 ##destinationテーブル
  
-| Column              | Type      | Options                       |
-| ------------------- | --------- | ----------------------------- |
-| postal_code         | string    | null: false                   |
-| prefecture          | integer   | null: false                   |
-| city                | string    | null: false                   |
-| address             | string    | null: false                   |
-| building_name       | string    |                               |
-| phone_name          | string    | null: false                   |
-| purchase            | reference | null: false foreign_key: true |
+| Column              | Type       | Options                       |
+| ------------------- | ---------- | ----------------------------- |
+| postal_code         | string     | null: false                   |
+| prefecture          | integer    | null: false                   |
+| city                | string     | null: false                   |
+| address             | string     | null: false                   |
+| building_name       | string     |                               |
+| phone_name          | string     | null: false                   |
+| purchase            | references | null: false foreign_key: true |
 
 ###Association
 - belongs_to :purchase
@@ -66,10 +66,10 @@ Things you may want to cover:
 
 ##purchaseテーブル
 
-| Column  | Type      | Options                       |
-| --------| --------  | ------------------------------|
-| user    | reference | null: false foreign_key: true |
-| items   | reference | null: false foreign_key: true |
+| Column  | Type       | Options                       |
+| --------| ---------- | ------------------------------|
+| user    | references | null: false foreign_key: true |
+| items   | references | null: false foreign_key: true |
 
 ###Association
 - has_one :destination
@@ -82,18 +82,18 @@ Things you may want to cover:
 
 ##itemsテーブル
 
-| Column   | Type      | Options                       |
-| ---------| --------  | ----------------------------- |
-| image    | string    | null: false                   |
-| name     | string    | null: false                   |
-| explain  | text      | null: false                   |
-| category | integer   | null: false                   |
-| status   | integer   | null: false                   |
-| cost     | integer   | null: false                   |
-| from     | integer   | null: false                   |
-| days     | integer   | null: false                   |
-| price    | string    | null: false                   |
-| user     | reference | null: false foreign_key :true |
+| Column   | Type       | Options                       |
+| ---------| --------   | ----------------------------- |
+| image    | string     | null: false                   |
+| name     | string     | null: false                   |
+| explain  | text       | null: false                   |
+| category | integer    | null: false                   |
+| status   | integer    | null: false                   |
+| cost     | integer    | null: false                   |
+| from     | integer    | null: false                   |
+| days     | integer    | null: false                   |
+| price    | string     | null: false                   |
+| user     | references | null: false foreign_key :true |
 
 ###Association
 - belongs_to :user
