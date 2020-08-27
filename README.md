@@ -56,7 +56,7 @@ Things you may want to cover:
 | address             | string    | null: false                   |
 | building_name       | string    |                               |
 | phone_name          | string    | null: false                   |
-| purchase_id         | reference | null: false foreign_key: true |
+| purchase            | reference | null: false foreign_key: true |
 
 ###Association
 - belongs_to :purchase
@@ -68,8 +68,8 @@ Things you may want to cover:
 
 | Column  | Type      | Options                       |
 | --------| --------  | ------------------------------|
-| user_id | reference | null: false foreign_key: true |
-| item_id | reference | null: false foreign_key: true |
+| user    | reference | null: false foreign_key: true |
+| items   | reference | null: false foreign_key: true |
 
 ###Association
 - has_one :destination
@@ -86,15 +86,15 @@ Things you may want to cover:
 | ---------| --------  | ----------------------------- |
 | image    | string    | null: false                   |
 | name     | string    | null: false                   |
-| category | string    | null: false                   |
-| explain  | string    | null: false                   |
-| status   | string    | null: false                   |
-| cost     | string    | null: false                   |
-| from     | string    | null: false                   |
-| days     | string    | null: false                   |
+| explain  | text      | null: false                   |
+| category | integer   | null: false                   |
+| status   | integer   | null: false                   |
+| cost     | integer   | null: false                   |
+| from     | integer   | null: false                   |
+| days     | integer   | null: false                   |
 | price    | string    | null: false                   |
-| user_id  | reference | null: false foreign_key :true |
+| user     | reference | null: false foreign_key :true |
 
 ###Association
-- belongs_to :users
+- belongs_to :user
 - has_one :purchase
