@@ -24,10 +24,10 @@ Things you may want to cover:
 * ...
 
 
-#テーブル設計
+# テーブル設計
 
 
-##usersテーブル
+## usersテーブル
 
 | Column           | Type     | Options     |
 | ---------------- | -------- | ----------- |
@@ -40,13 +40,13 @@ Things you may want to cover:
 | family_name_kana | string   | null: false |
 | birth_day        | date     | null: false |
 
-###Association
+### Association
 - has_many :items
 - has_one :purchase
 
 
 
-##destinationsテーブル
+## destinationsテーブル
  
 | Column              | Type       | Options                       |
 | ------------------- | ---------- | ----------------------------- |
@@ -58,20 +58,20 @@ Things you may want to cover:
 | phone_name          | string     | null: false                   |
 | purchase            | references | null: false foreign_key: true |
 
-###Association
+### Association
 - belongs_to :purchase
 
 
 
 
-##purchasesテーブル
+## purchasesテーブル
 
 | Column  | Type       | Options                       |
 | --------| ---------- | ------------------------------|
-| user    | references | null: false foreign_key: true |
-| item    | references | null: false foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
-###Association
+### Association
 - has_one :destination
 - belongs_to :user
 - belongs_to :item
@@ -80,7 +80,7 @@ Things you may want to cover:
 
 
 
-##itemsテーブル
+## itemsテーブル
 
 | Column   | Type       | Options                       |
 | ---------| --------   | ----------------------------- |
@@ -95,6 +95,6 @@ Things you may want to cover:
 | price    | integer    | null: false                   |
 | user     | references | null: false foreign_key :true |
 
-###Association
+### Association
 - belongs_to :user
 - has_one :purchase
