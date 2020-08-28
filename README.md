@@ -92,7 +92,7 @@ Things you may want to cover:
 | cost     | integer    | null: false                   |
 | from     | integer    | null: false                   |
 | days     | integer    | null: false                   |
-| price    | string     | null: false                   |
+| price    | integer    | null: false                   |
 | user     | references | null: false foreign_key :true |
 
 ###Association
