@@ -56,7 +56,7 @@ Things you may want to cover:
 | address             | string     | null: false                   |
 | building_name       | string     |                               |
 | phone_name          | string     | null: false                   |
-| purchase            | references | null: false foreign_key: true |
+| purchase            | references |foreign_key: true              |
 
 ### Association
 - belongs_to :purchase
@@ -68,8 +68,8 @@ Things you may want to cover:
 
 | Column  | Type       | Options                       |
 | --------| ---------- | ------------------------------|
-| user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
+| user    | references | foreign_key: true             |
+| item    | references | foreign_key: true             |
 
 ### Association
 - has_one :destination
@@ -93,7 +93,7 @@ Things you may want to cover:
 | from     | integer    | null: false                   |
 | days     | integer    | null: false                   |
 | price    | integer    | null: false                   |
-| user     | references | null: false foreign_key :true |
+| user     | references | foreign_key :true             |
 
 ### Association
 - belongs_to :user
