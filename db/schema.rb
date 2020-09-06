@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2020_09_04_144527) do
     t.string "image", null: false
     t.string "name", null: false
     t.text "explain", null: false
-    t.integer "category", null: false
-    t.integer "status", null: false
-    t.integer "cost", null: false
-    t.integer "from", null: false
-    t.integer "days", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "cost_id", null: false
+    t.integer "from_id", null: false
+    t.integer "day_id", null: false
     t.integer "price", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
