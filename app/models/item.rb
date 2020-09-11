@@ -8,22 +8,17 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  validates :content, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
-  end
 
   with_options presence: true do
     validates :image
     validates :name
     validates :explain
-    validates :price
-    validates :category_id, numericality: { other_than: 1 }
-    validates :status_id, numericality: { other_than: 1 }
-    validates :cost_id, numericality: { other_than: 1 }
-    validates :from_id, numericality: { other_than: 0 }
-    validates :day_id, numericality: { other_than: 1 }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to:  9999999 }, format: { with: /\A[0-9]+\z/ }
+    validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :cost_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :from_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :day_id, numericality: { other_than: 1, message: "can't be blank" }
   end
- 
+
 end
