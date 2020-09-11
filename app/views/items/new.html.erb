@@ -19,7 +19,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
       <%= image_tag item.image.variant(resize:'500×500'), class: 'item-image' if @item.image.attached? %>
     </div>

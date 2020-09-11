@@ -19,11 +19,11 @@ class Item < ApplicationRecord
     validates :name
     validates :explain
     validates :price
-    validates :category, numericality: { other_than: 1 }
-    validates :status, numericality: { other_than: 1 }
-    validates :cost, numericality: { other_than: 1 }
-    validates :from, numericality: { other_than: 0 }
-    validates :day, numericality: { other_than: 1 }
+    validates :category_id, numericality: { other_than: 1 }
+    validates :status_id, numericality: { other_than: 1 }
+    validates :cost_id, numericality: { other_than: 1 }
+    validates :from_id, numericality: { other_than: 0 }
+    validates :day_id, numericality: { other_than: 1 }
   end
  
 end
