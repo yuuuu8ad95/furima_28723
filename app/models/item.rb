@@ -13,20 +13,13 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :explain
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-    validates :category
-    validates :status
-    validates :cost
-    validates :from
-    validates :day
-  end
-
-  with_options numericality: { other_than: 1, message: 'Select' } do
-    validates :category_id
-    validates :status_id
-    validates :cost_id
+    validates :price, numericality: {
+      greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999
+    }, format: { with: /\A[a-z0-9]+\z/i }
+    validates :category_id, numericality: { other_than: 1, message: 'Select' }
+    validates :status_id, numericality: { other_than: 1, message: 'Select' }
+    validates :cost_id, numericality: { other_than: 1, message: 'Select' }
+    validates :from_id, numericality: { other_than: 0, message: 'Select' }
     validates :day_id
   end
-  validates :from_id, numericality: { other_than: 0, message: 'Select' }
-  validates :price, format: { with: /\A[a-z0-9]+\z/i }
 end
