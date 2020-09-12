@@ -25,33 +25,33 @@ RSpec.describe Item, type: :model do
     end
 
     it 'カテゴリーの情報について選択がされていないと保存できない。' do
-      @item.category_id = ''
+      @item.category_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      expect(@item.errors.full_messages).to include('Category Select')
     end
 
     it '商品の状態について選択がされていないと保存できない。' do
-      @item.status_id = ''
+      @item.status_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status can't be blank")
+      expect(@item.errors.full_messages).to include('Status Select')
     end
 
     it '配送料の負担について選択がされていないと保存できない。' do
-      @item.cost_id = ''
+      @item.cost_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Cost can't be blank")
+      expect(@item.errors.full_messages).to include('Cost Select')
     end
 
     it '発送元の地域について選択がされていないと保存できない。' do
-      @item.from_id = ''
+      @item.from_id = '0'
       @item.valid?
-      expect(@item.errors.full_messages).to include("From can't be blank")
+      expect(@item.errors.full_messages).to include('From Select')
     end
 
     it '発送までの日数について選択がされていないと保存できない。' do
-      @item.day_id = ''
+      @item.day_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day can't be blank")
+      expect(@item.errors.full_messages).to include('Day Select')
     end
 
     it '販売価格についての空だと保存できない。' do
