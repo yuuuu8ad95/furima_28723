@@ -20,6 +20,6 @@ class Item < ApplicationRecord
     validates :status_id, numericality: { other_than: 1, message: 'Select' }
     validates :cost_id, numericality: { other_than: 1, message: 'Select' }
     validates :from_id, numericality: { other_than: 0, message: 'Select' }
-    validates :day_id
+    validates :day_id, numericality: { other_than: 1, message: 'Select' }
   end
 end
