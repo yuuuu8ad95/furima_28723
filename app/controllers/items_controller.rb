@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new 
-    @item = UserDestination.new
   end
 
   def create
@@ -19,8 +18,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-    @item = UserDestination.create(item_params)
   end
 
   def show
@@ -45,24 +42,24 @@ class ItemsController < ApplicationController
     end
   end
 
-  def order
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    customer = Payjp::Customer.create(
-    description: 'test', 
-    card: params[:card_token]
-    )
+#  def order
+#    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+#    customer = Payjp::Customer.create(
+#    description: 'test', 
+#    card: params[:card_token]
+#    )
 
-  item = Item.new(
-       card_token: params[:card_token],
-       customer_token: customer.id,
-       user_id: current_user.id
-    )
-    if card.save
-      redirect_to root_path
-    else
-      redirect_to "new"
-    end
-  end
+#  item = Item.new(
+#       card_token: params[:card_token],
+#       customer_token: customer.id,
+#       user_id: current_user.id
+#    )
+#    if card.save
+#      redirect_to root_path
+#    else
+#      redirect_to "new"
+#    end
+#  end
 
   private
 
@@ -71,10 +68,6 @@ class ItemsController < ApplicationController
       :image, :name, :explain, :price, :category_id, :cost_id, :day_id, :from_id, :status_id
     ).merge(user_id: current_user.id)
   end
-
-  def item_params
-    params.require(:user_destination).permit(:postal_code, :prefecture_id, :city, :address,  :building_name, :phone_number)
-    end
 
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
