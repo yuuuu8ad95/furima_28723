@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new 
+    @item = Destination.new
   end
 
   def create
@@ -18,6 +19,8 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+
+    @item = Destination.create(item_params)
   end
 
   def show
@@ -68,6 +71,10 @@ class ItemsController < ApplicationController
       :image, :name, :explain, :price, :category_id, :cost_id, :day_id, :from_id, :status_id
     ).merge(user_id: current_user.id)
   end
+
+  def item_params
+    params.require(:destination).permit(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number)
+    end
 
   def move_to_index
     redirect_to new_user_session_path unless user_signed_in?
