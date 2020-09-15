@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new 
-    @item = Destination.new
+    @item = UserDestination.new
   end
 
   def create
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       render :new
     end
 
-    @item = Destination.create(item_params)
+    @item = UserDestination.create(item_params)
   end
 
   def show
@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:destination).permit(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number)
+    params.require(:user_destination).permit(:postal_code, :prefecture_id, :city, :address,  :building_name, :phone_number)
     end
 
   def move_to_index
