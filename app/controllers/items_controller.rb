@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only:[:show, :edit, :update, :destroy]
+#  before_action :find_item, only: :order
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -42,25 +43,6 @@ class ItemsController < ApplicationController
     end
   end
 
-#  def order
-#    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-#    customer = Payjp::Customer.create(
-#    description: 'test', 
-#    card: params[:card_token]
-#    )
-
-#  item = Item.new(
-#       card_token: params[:card_token],
-#       customer_token: customer.id,
-#       user_id: current_user.id
-#    )
-#    if card.save
-#      redirect_to root_path
-#    else
-#      redirect_to "new"
-#    end
-#  end
-
   private
 
   def item_params
@@ -76,4 +58,9 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+#  def find_item
+#    @item = Item.find(params[:id])
+ # end
+
 end

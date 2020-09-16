@@ -42,7 +42,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_one :order
+- has_one :purchase
 
 
 
@@ -59,12 +59,12 @@ Things you may want to cover:
 | purchase            | references |foreign_key: true              |
 
 ### Association
-- belongs_to :order
+- belongs_to :purchase
 
 
 
 
-## ordersテーブル
+## purchasesテーブル
 
 | Column  | Type       | Options                       |
 | --------| ---------- | ------------------------------|
