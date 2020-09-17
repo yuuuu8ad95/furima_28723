@@ -8,9 +8,7 @@ class OrdersController < ApplicationController
     @order = OrderDestination.new(order_params)
     if @order.valid?
       pay_item
-      binding.pry
       @order.save
-      binding.pry
       return redirect_to root_path
     else
       render 'index'

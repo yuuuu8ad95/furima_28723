@@ -14,7 +14,6 @@ class OrderDestination
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-    Destination.create(postal_code: postal_code, from_id: from_id, city: city, address:address,  building_name:building_name, phone_number: phone_number)
-    Destination.create(order_id: order.id)
+    Destination.create(postal_code: postal_code, from_id: from_id, city: city, address:address,  building_name:building_name, phone_number: phone_number, order_id: order.id)
   end
 end
