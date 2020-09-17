@@ -42,7 +42,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_one :purchase
+- has_one :order
 
 
 
@@ -51,20 +51,20 @@ Things you may want to cover:
 | Column              | Type       | Options                       |
 | ------------------- | ---------- | ----------------------------- |
 | postal_code         | string     | null: false                   |
-| prefecture_id       | integer    | null: false                   |
+| from_id             | integer    | null: false                   |
 | city                | string     | null: false                   |
 | address             | string     | null: false                   |
 | building_name       | string     |                               |
 | phone_number        | string     | null: false                   |
-| purchase            | references |foreign_key: true              |
+| order               | references |foreign_key: true              |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
 
 
 
 
-## purchasesテーブル
+## ordersテーブル
 
 | Column  | Type       | Options                       |
 | --------| ---------- | ------------------------------|
@@ -97,4 +97,4 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order

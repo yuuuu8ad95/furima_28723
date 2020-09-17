@@ -1,18 +1,20 @@
 class OrderDestination
 
-    include ActiveModel::Model
-    attr_accessor :postal_code, :prefecture_id, :city, :address,  :building_name, :phone_number
+   include ActiveModel::Model
+   attr_accessor :postal_code, :from_id, :city, :address,  :building_name, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/}
-    validates :prefecture_id, numericality: { other_than: 0, message: 'Select' }
+    validates :from_id, numericality: { other_than: 0, message: 'Select' }
     validates :city 
     validates :address  
     validates :phone_number
+    validates :token
   end
 
   def save
-    Order.create(user_id: user_id, item_id: item_id)
-    Destination.create(postal_code: postal_code, prefecture_id:prefecture_id, city, :address:city, address:address,  building_name:building_name, phone_number:phone_number, purchase_id: purchase_id)
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Destination.create(postal_code: postal_code, from_id: from_id, city: city, address:address,  building_name:building_name, phone_number: phone_number)
+    Destination.create(order_id: order.id)
   end
 end
