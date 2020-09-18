@@ -40,7 +40,7 @@ RSpec.describe OrderDestination, type: :model do
       expect(@order_destination.errors.full_messages).to include('Postal code is invalid')
     end
 
-    it '電話番号は、11桁以内出ないと保存できない' do
+    it '電話番号は、12桁以上と保存できない' do
       @order_destination.phone_number = '11111111111111'
       @order_destination.valid?
       expect(@order_destination.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
