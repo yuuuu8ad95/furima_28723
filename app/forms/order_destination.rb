@@ -8,8 +8,7 @@ class OrderDestination
     validates :from_id, numericality: { other_than: 0, message: 'Select' }
     validates :city 
     validates :address  
-    validates :phone_number
-    validates :token
+    validates :phone_number, length: { maximum: 11 },format: { with: /\A[a-z0-9]+\z/i}
   end
 
   def save
