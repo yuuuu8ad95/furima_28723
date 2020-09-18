@@ -45,5 +45,17 @@ RSpec.describe OrderDestination, type: :model do
       @order_destination.valid?
       expect(@order_destination.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
+
+    it '建物名が空の場合でも保存することができる' do
+      @order_destination.building_name = ''
+      @order_destination.valid?
+      expect(@order_destination).to be_valid
+    end    
+
+    it '郵便番号は、ハイフンが入力されていると保存できる' do
+      @order_destination.postal_code = '123-4567'
+      @order_destination.valid?
+      expect(@order_destination).to be_valid
+    end
   end
 end
