@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @order = OrderDestination.new
   end
 
   def create
@@ -10,7 +11,7 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save
-      redirect_to root_path
+      redirect root_path
     else
       render 'index'
     end
@@ -19,7 +20,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    # paramsからキーを指定してparameterを取得している
     @item = Item.find(params[:item_id])
     params.permit(
       :postal_code, :from_id, :city, :address, :building_name, :phone_number, :token, :item_id
