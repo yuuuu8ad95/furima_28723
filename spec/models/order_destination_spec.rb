@@ -14,13 +14,12 @@ RSpec.describe OrderDestination, type: :model do
       @order_destination.postal_code = ''
       @order_destination.valid?
       expect(@order_destination.errors.full_messages).to include("Postal code can't be blank")
-
     end
 
     it '配送先の住所として都道府県が選択されていないと保存できない' do
       @order_destination.from_id = '0'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("From Select")
+      expect(@order_destination.errors.full_messages).to include('From Select')
     end
 
     it '配送先の住所として市区町村がないと保存できない' do
@@ -38,14 +37,13 @@ RSpec.describe OrderDestination, type: :model do
     it '郵便番号は、ハイフンがないと保存できない' do
       @order_destination.postal_code = '1111111'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Postal code is invalid")
-      
+      expect(@order_destination.errors.full_messages).to include('Postal code is invalid')
     end
 
     it '電話番号は、11桁以内出ないと保存できない' do
       @order_destination.phone_number = '11111111111111'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      expect(@order_destination.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
   end
 end

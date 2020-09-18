@@ -41,7 +41,4 @@ RSpec.describe Order, type: :model do
     it 'priceが1,000,000円を超過すると保存できないこと' do
     end
   end
-
-
-
 end
