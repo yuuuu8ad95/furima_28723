@@ -3,6 +3,7 @@ class OrderDestination
   attr_accessor :postal_code, :from_id, :city, :address, :building_name, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
+    validates :token
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :from_id, numericality: { other_than: 0, message: 'Select' }
     validates :city

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe OrderDestination, type: :model do
-  describe '商品購入の保存' do
+  describe '商品購入' do
     before do
       @order_destination = FactoryBot.build(:order_destination)
     end
@@ -23,6 +23,16 @@ RSpec.describe OrderDestination, type: :model do
     end
 
     context '商品購入がうまくいかないとき' do
+      it 'クレジットカードの情報がないと保存できない' do
+        @order_destination.token = ''
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Token can't be blank")
+      end    
+      it '正しいクレジットカードの情報で無いときは決済できないこと' do
+        @order_destination.token = nil
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Token can't be blank")
+      end
       it '配送先の住所として郵便番号がないと保存できない' do
         @order_destination.postal_code = ''
         @order_destination.valid?
