@@ -14,7 +14,7 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.building_name = ''
         @order_destination.valid?
         expect(@order_destination).to be_valid
-      end    
+      end
       it '郵便番号は、ハイフンが入力されていると保存できる' do
         @order_destination.postal_code = '123-4567'
         @order_destination.valid?
@@ -27,7 +27,7 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.token = ''
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Token can't be blank")
-      end    
+      end
       it '正しいクレジットカードの情報で無いときは決済できないこと' do
         @order_destination.token = nil
         @order_destination.valid?
