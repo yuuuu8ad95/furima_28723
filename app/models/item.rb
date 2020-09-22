@@ -7,11 +7,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
 
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
   has_one :order
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :explain
     validates :price, numericality: {
