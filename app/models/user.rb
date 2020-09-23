@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_one :order
+  has_many :messages
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
 

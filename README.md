@@ -43,6 +43,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_one :order
+- has_many: messages
 
 
 
@@ -98,3 +99,18 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_one :order
+- has many: messages
+
+
+## messagesテーブル
+
+| Column       | Type       | Options                       |
+| ------------ | --------   | ----------------------------- |
+| text         | text       | null: false                   |
+| user         | references | foreign_key :true             |
+| item         | references | foreign_key :true             |
+
+### Association
+- belongs_to :user
+- has_one :item
+
