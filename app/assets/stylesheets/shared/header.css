@@ -102,3 +102,23 @@
   text-decoration: none;
   color: #333333;
 }
+
+.sns {
+  text-decoration: none;
+  color: #333333;
+  margin-left: 15px;
+}
+
+.sns-login {
+  margin-top: 15px;
+  display:flex;
+  justify-content:space-around;
+}
+
+.facebook-login {
+  color: #333333;
+}
+
+.google-login {
+  color: #333333;
+}
