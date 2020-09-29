@@ -44,7 +44,7 @@ Things you may want to cover:
 - has_many :items
 - has_one :order
 - has_many: messages
-
+- has_many: sns_credentials
 
 
 ## destinationsテーブル
@@ -63,8 +63,6 @@ Things you may want to cover:
 - belongs_to :order
 
 
-
-
 ## ordersテーブル
 
 | Column  | Type       | Options                       |
@@ -76,9 +74,6 @@ Things you may want to cover:
 - has_one :destination
 - belongs_to :user
 - belongs_to :item
-
-
-
 
 
 ## itemsテーブル
@@ -99,7 +94,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_one :order
-- has many: messages
+- has_many: messages
 
 
 ## messagesテーブル
@@ -112,5 +107,18 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_one :item
+- belongs_to :item
+
+
+## sns_credentialsテーブル
+
+| Column       | Type       | Options                       |
+| ------------ | --------   | ----------------------------- |
+| provider     | string     |                               |
+| uid          | string     |                               |
+| user         | references | foreign_key :true             |
+
+### Association
+- belongs_to :user
+
 
